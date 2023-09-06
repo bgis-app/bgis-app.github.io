@@ -95,7 +95,7 @@ footer a {
 <a class="nav-link" href="./examples.html">Examples</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="./api.html">API</a>
+<a class="nav-link" href="./api" target="_blank">API</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="https://github.com/bgis-app/bgis-core" target="_blank">Repository</a>
@@ -110,262 +110,276 @@ footer a {
   <h2>"Full Features" Integration
   </h2>
   <div class="mb-3">
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-quicklink&quot;).classList.toggle(&quot;hide&quot;);return false;">toggle quicklink</button>
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-sidebar&quot;).classList.toggle(&quot;show-detail&quot;);return false;">toggle details</button>
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-detail&quot;).classList.toggle(&quot;show-search-results&quot;);return false;">toggle search results in details</button>
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-map-area&quot;).classList.toggle(&quot;showToolbar&quot;);return false;">toggle tool box</button>
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-basemap&quot;).classList.toggle(&quot;open&quot;);return false;">toggle Begleitkarten</button>
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis&quot;).classList.toggle(&quot;show-listview&quot;);return false;">toggle list view</button>
-    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-app-menu&quot;).classList.toggle(&quot;show&quot;);return false;">toggle app menu</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-map-area&quot;).classList.toggle(&quot;hide-quicklink&quot;);return false;">toggle quicklink</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-map-area&quot;).classList.toggle(&quot;show-map-details&quot;);return false;">toggle details</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-map-area&quot;).classList.toggle(&quot;show-search-details&quot;);return false;">toggle search results in details</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-map-area&quot;).classList.toggle(&quot;show-toolbar&quot;);return false;">toggle tool box</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-map-area&quot;).classList.toggle(&quot;show-basemap&quot;);return false;">toggle Begleitkarten</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-body&quot;).classList.toggle(&quot;show-app-menu&quot;);return false;">toggle app menu</button>
+    <button class="btn btn-sm btn-outline-secondary mr-1" onclick="document.querySelector(&quot;.bgis-body&quot;).classList.toggle(&quot;show-listview&quot;);return false;">toggle list view</button>
     <p></p><small lang="en">These buttons partly simulate the click handlers of your framework (e.g. React, Angular)</small>
   </div>
   <div class="map-border renderedHtml" style="height:500px">
 <!-- bgis.pug-->
 <div class="bgis">
   <!-- header.pug-->
-  <header class="bgis-header">
-    <nav>
-      <div class="bgis-grow0"><span class="bgis-headline5">bgis Client</span></div><a href="#">link 1</a><a href="#">link 2</a><a href="#">link 3</a>
-      <div class="bgis-grow1"></div>
-      <div class="bgis-grow-0"><span class="bgis-headline5">Logo Right</span></div>
-      <div class="bgis-hide-header bgis-grow0 bgis-icon"><i class="bgis-icon bgis-icon-times"></i></div>
-    </nav>
-  </header>
-  <!-- header-collapse.pug-->
-  <div class="collapsible bgis-icon bgis-show-header bgis-toggled-overlayable"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
+  <nav class="bgis-header"><span class="bgis-headline5">bgis Client</span><a href="#">link 1</a><a href="#">link 2</a><a href="#">link 3</a><span class="bgis-grow"></span><span class="bgis-headline5">Logo Right</span>
+    <button class="bgis-hide-header bgis-icon"><i class="bgis-icon-times"></i></button>
+  </nav>
   <!-- bgis.pug (2)-->
   <main class="bgis-body">
     <!-- map-area.pug-->
     <div class="bgis-map-area">
       <!-- sidebar.pug-->
-      <aside class="bgis-sidebar bgis-toggled-overlayable">
-        <!-- search.pug-->
-        <section class="bgis-search bgis-toggled-overlayable">
-          <header class="bgis-search-header">
-            <button class="bgis-icon" aria-label="Einstellungen"><i class="bgis-icon bgis-icon-bars"></i></button>
-            <label class="bgis-sr-only" for="search">Durchsuchen...</label>
-            <input class="bgis-grow1 bgis-text" type="search" id="search" placeholder="durchsuchen ...">
-            <button class="bgis-grow0 bgis-icon bgis-search-showfilter" aria-label="Filter anzeigen"><i class="bgis-icon bgis-icon-sliders"></i></button>
-            <button class="bgis-grow0 bgis-icon" aria-label="Spracheingabe"><i class="bgis-icon bgis-icon-microphone"></i></button>
-          </header>
-          <div class="bgis-search-body" id="bgis-search-filter">
-            <ul class="bgis-list bgis-scrollbar">
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">0</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 0</span><span class="bgis-subtitle2">Informations about selected element 0</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">1</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 1</span><span class="bgis-subtitle2">Informations about selected element 1</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">2</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 2</span><span class="bgis-subtitle2">Informations about selected element 2</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">3</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 3</span><span class="bgis-subtitle2">Informations about selected element 3</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">4</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 4</span><span class="bgis-subtitle2">Informations about selected element 4</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">5</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 5</span><span class="bgis-subtitle2">Informations about selected element 5</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">6</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 6</span><span class="bgis-subtitle2">Informations about selected element 6</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">7</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 7</span><span class="bgis-subtitle2">Informations about selected element 7</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">8</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 8</span><span class="bgis-subtitle2">Informations about selected element 8</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-              <li class="bgis-hz">
-                <div class="bgis-fab-icon">9</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 9</span><span class="bgis-subtitle2">Informations about selected element 9</span></span>
-                <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
-              </li>
-            </ul>
-          </div>
-          <div class="bgis-toggle-detail">
-            <button class="bgis-icon" onclick="document.querySelector('.bgis-sidebar').classList.toggle('minimize-detail');return false;"><i class="bgis-icon bgis-icon-chevron-down"></i></button><a class="bgis-caption">Details einblenden</a>
-          </div>
-        </section>
-        <!-- legend.pug-->
-        <section class="bgis-legend bgis-toggled-overlayable">
-          <header class="bgis-legend-header"><span class="bgis-fab-icon"><i class="bgis-icon bgis-icon-map"></i></span><span class="bgis-txt"><span class="bgis-overline">Kartendetails</span><span class="bgis-headline6">Karte XYZ</span></span><span class="bgis-icon"><i class="bgis-icon bgis-icon-layer-group"></i></span></header>
-          <div class="bgis-legend-open"><a class="bgis-caption bgis-grow1">Legende &amp; Infos anzeigen</a>
-            <button class="bgis-showlegend bgis-icon" title="Zeige detaillierte Legendeninfos zur Karte an" aria-label="Zeige detaillierte Legendeninfos zur Karte an"><i class="bgis-icon bgis-icon-chevron-down"></i></button>
-          </div>
-          <div class="bgis-legend-tabs">
-            <button class="bgis-layers-tab bgis-caption" aria-label="Legende">Legende</button>
-            <button class="bgis-infos-tab bgis-caption" aria-label="Informationen">Infos</button><span class="bgis-grow1">&nbsp;</span>
-            <button class="bgis-hidelegend bgis-icon" title="Detaillierte Legendeninfo ausblenden" aria-label="Detaillierte Legendeninformation ausblenden"><i class="bgis-icon bgis-icon-chevron-up"></i></button>
-          </div>
-          <div class="bgis-legend-layers">
-            <!-- legend-legend.pug-->
-            <ul class="bgis-list-dense bgis-scrollbar">
-              <li>
-                <h3 class="bgis-overline">Variante 1 (statische Legende)</h3>
-              </li>
-              <li><span class="bgis-hz"><span class="bgis-txt">
-                    <h4 class="bgis-subtitle1">Layer 1 Titel</h4></span></span>
-                <ul class="bgis-list-dense">
-                  <li><span class="bgis-hz"><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgc3R5bGU9ImZpbGw6cmdiKDAsIDEwMCwgMCk7c3Ryb2tlOnJnYigwLDAsMCk7c3Ryb2tlLXdpZHRoOjEuNXB4OyIgLz4NCjwvc3ZnPg0K" alt="Beispiel Icon"><span class="bgis-txt bgis-body2">Legend Layer 1 Item 1</span></span></li>
-                  <li><span class="bgis-hz"><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgc3R5bGU9ImZpbGw6cmdiKDE0NCwgMjM4LCAxNDQpO3N0cm9rZTpyZ2IoMCwwLDApO3N0cm9rZS13aWR0aDoycHg7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon"><span class="bgis-txt bgis-body2">Legend Layer 1 Item 2</span></span></li>
-                </ul>
-              </li>
-              <li><span class="bgis-hz"><span class="bgis-txt">
-                    <h4 class="bgis-subtitle1">Layer 2 Titel</h4></span></span>
-                <ul class="bgis-list-dense">
-                  <li><span class="bgis-hz"><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgIDxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgc3R5bGU9ImZpbGw6cmdiKDI1NSwyNTUsMCk7c3Ryb2tlOnJnYigwLDAsMCk7c3Ryb2tlLXdpZHRoOjJweDsiIC8+DQogICAgPHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgc3R5bGU9ImZpbGw6YmxhY2s7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon"><span class="bgis-txt bgis-body2">Legend Layer 2 Item 1</span></span></li>
-                </ul>
-              </li>
-              <li>
-                <h3 class="bgis-overline">Variante 2 (dynamische Legende)</h3>
-              </li>
-              <li><span class="bgis-hz">
-                  <input class="bgis-icon bgis-checkbox" type="checkbox" id="dynamicLayer1" value="valueDynamicLayer1" checked=""><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6cmdiKDAsMCwwKTtzdHJva2Utd2lkdGg6MS41cHg7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon">
-                  <label class="bgis-txt" for="dynamicLayer1">
-                    <h4 class="bgis-subtitle1">Layer 1 Titel</h4>
-                  </label><i class="bgis-icon bgis-icon-chevron-up"></i></span>
-                <ul class="bgis-list-dense">
-                  <li><span class="bgis-hz">
-                      <input class="bgis-icon bgis-checkbox" type="checkbox" id="layer1item1" value="Legend Entry x1" checked=""><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgc3R5bGU9ImZpbGw6cmdiKDAsIDEwMCwgMCk7c3Ryb2tlOnJnYigwLDAsMCk7c3Ryb2tlLXdpZHRoOjEuNXB4OyIgLz4NCjwvc3ZnPg0K" alt="Beispiel Icon">
-                      <label class="bgis-txt bgis-body2" for="layer1item2">Legend Layer 1 Item 1</label></span></li>
-                  <li><span class="bgis-hz">
-                      <input class="bgis-icon bgis-checkbox" type="checkbox" id="layer1item2" value="layer1item2" checked=""><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgc3R5bGU9ImZpbGw6cmdiKDE0NCwgMjM4LCAxNDQpO3N0cm9rZTpyZ2IoMCwwLDApO3N0cm9rZS13aWR0aDoycHg7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon">
-                      <label class="bgis-txt bgis-body2" for="layer1item2">Legend Layer 1 Item 2</label></span></li>
-                </ul>
-              </li>
-              <li><span class="bgis-hz">
-                  <input class="bgis-icon bgis-checkbox" type="checkbox" id="dynamicLayer2" value="valueDynamicLayer2" checked=""><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIGlkPSJzdmcyIj4NCiAgICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOnJnYigwLDAsMCk7c3Ryb2tlLXdpZHRoOjJweDsiIC8+DQogICAgPHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgc3R5bGU9ImZpbGw6YmxhY2s7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon">
-                  <label class="bgis-txt" for="dynamicLayer2">
-                    <h4 class="bgis-subtitle1">Layer 2 Titel</h4>
-                  </label><i class="bgis-icon bgis-icon-chevron-up"></i></span>
-                <ul class="bgis-list-dense">
-                  <li><span class="bgis-hz">
-                      <input class="bgis-icon bgis-checkbox" type="checkbox" id="layer1item3" value="Legend Entry x1" checked=""><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KICAgIDxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgc3R5bGU9ImZpbGw6cmdiKDI1NSwyNTUsMCk7c3Ryb2tlOnJnYigwLDAsMCk7c3Ryb2tlLXdpZHRoOjJweDsiIC8+DQogICAgPHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgc3R5bGU9ImZpbGw6YmxhY2s7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon">
-                      <label class="bgis-txt bgis-body2" for="layer1item2">Legend Layer 2 Item 1</label></span></li>
-                </ul>
-              </li>
-              <li><span class="bgis-hz">
-                  <input class="bgis-icon bgis-checkbox" type="checkbox" id="dynamicLayer3" value="valueDynamicLayer3" checked=""><img class="bgis-icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnDQogICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGhlaWdodD0iMjRweCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIGlkPSJzdmcyIj4NCiAgICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOnJnYigwLDAsMCk7c3Ryb2tlLXdpZHRoOjJweDsiIC8+DQogICAgPHJlY3QgeD0iOSIgeT0iOSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgc3R5bGU9ImZpbGw6YmxhY2s7IiAvPg0KPC9zdmc+DQo=" alt="Beispiel Icon">
+      <aside class="bgis-sidebar">
+        <section class="bgis-menus">
+          <!-- search.pug-->
+          <section class="bgis-search">
+            <header class="bgis-search-header">
+              <button class="bgis-icon" aria-label="Einstellungen"><i class="bgis-icon bgis-icon-bars"></i></button>
+              <input class="bgis-grow bgis-text" type="search" id="search" placeholder="durchsuchen ...">
+              <button class="bgis-grow0 bgis-icon bgis-search-showfilter" aria-label="Filter anzeigen"><i class="bgis-icon bgis-icon-sliders"></i></button>
+              <button class="bgis-grow0 bgis-icon" aria-label="Spracheingabe"><i class="bgis-icon bgis-icon-microphone"></i></button>
+            </header>
+            <!-- Displays the search filter-->
+            <div class="bgis-search-body" id="bgis-search-filter">
+              <ul class="bgis-list-dense bgis-scroll">
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">0</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 0</span><span class="bgis-subtitle2">Informations about selected element 0</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">1</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 1</span><span class="bgis-subtitle2">Informations about selected element 1</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">2</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 2</span><span class="bgis-subtitle2">Informations about selected element 2</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">3</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 3</span><span class="bgis-subtitle2">Informations about selected element 3</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">4</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 4</span><span class="bgis-subtitle2">Informations about selected element 4</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">5</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 5</span><span class="bgis-subtitle2">Informations about selected element 5</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">6</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 6</span><span class="bgis-subtitle2">Informations about selected element 6</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">7</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 7 Element 7 Element 7</span><span class="bgis-subtitle2">Informations about selected element 7 Informations about selected element 7</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">8</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 8 Element 8 Element 8</span><span class="bgis-subtitle2">Informations about selected element 8 Informations about selected element 8</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+                <li class="bgis-hz">
+                  <div class="bgis-fab-icon">9</div><span class="bgis-txt"><span class="bgis-subtitle1">Element 9 Element 9 Element 9</span><span class="bgis-subtitle2">Informations about selected element 9 Informations about selected element 9</span></span>
+                  <div class="bgis-icon"><i class="bgis-icon bgis-icon-pdf"></i></div>
+                </li>
+              </ul>
+            </div>
+            <!-- Toggles the details view for search and map details-->
+            <div class="bgis-show-details">
+              <button class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></button><span class="bgis-caption bgis-grow">Details einblenden</span>
+            </div>
+          </section>
+          <!-- legend.pug-->
+          <section class="bgis-legend">
+            <header class="bgis-legend-header"><span class="bgis-legend-header-title"><span class="bgis-fab-icon"><i class="bgis-icon bgis-icon-map"></i></span><span class="bgis-txt"><span class="bgis-overline">Kartendetails</span><span class="bgis-headline6">Karte XYZ</span></span><span class="bgis-icon"><i class="bgis-icon bgis-icon-layer-group"></i></span></span>
+              <div class="bgis-legend-header-open"><a class="bgis-caption bgis-grow">Legende &amp; Infos anzeigen</a>
+                <button class="bgis-showlegend bgis-icon" title="Zeige detaillierte Legendeninfos zur Karte an" aria-label="Zeige detaillierte Legendeninfos zur Karte an"><i class="bgis-icon bgis-icon-chevron-down"></i></button>
+              </div>
+              <div class="bgis-legend-header-tabs">
+                <button class="bgis-layers-tab bgis-caption" aria-label="Legende">Legende</button>
+                <button class="bgis-infos-tab bgis-caption" aria-label="Informationen">Infos</button><span class="bgis-grow">&nbsp;</span>
+                <button class="bgis-hidelegend bgis-icon" title="Detaillierte Legendeninfo ausblenden" aria-label="Detaillierte Legendeninformation ausblenden"><i class="bgis-icon bgis-icon-chevron-up"></i></button>
+              </div>
+            </header>
+            <div class="bgis-legend-layer-details">
+              <!-- legend-legend.pug-->
+              <ul class="bgis-list-dense bgis-scroll">
+                <li class="bgis-hz">
+                  <h3 class="bgis-overline">Variante 1 (statische Legende)</h3>
+                </li>
+                <li>
+                  <h4 class="bgis-hz bgis-subtitle1">Layer 1 Titel</h4>
+                  <ul class="bgis-list-dense">
+                    <li class="bgis-hz"><img class="bgis-icon" src="assets/fwmst.50b378b4.svg" alt="Beispiel Icon"><span class="bgis-txt bgis-body2">Legend Layer 1 Item 1</span></li>
+                    <li class="bgis-hz"><img class="bgis-icon" src="assets/semst.4c2431e9.svg" alt="Beispiel Icon"><span class="bgis-txt bgis-body2">Legend Layer 1 Item 2</span></li>
+                  </ul>
+                </li>
+                <li>
+                  <h4 class="bgis-hz bgis-subtitle1">Layer 2 Titel</h4>
+                  <ul class="bgis-list-dense">
+                    <li class="bgis-hz"><img class="bgis-icon" src="assets/pgmst.14898e5e.svg" alt="Beispiel Icon"><span class="bgis-txt bgis-body2">Legend Layer 2 Item 1</span></li>
+                  </ul>
+                </li>
+                <li class="bgis-hz">
+                  <h3 class="bgis-overline">Variante 2 (dynamische Legende)</h3>
+                </li>
+                <li><span class="bgis-hz">
+                    <input class="bgis-icon bgis-checkbox" type="checkbox" id="dynamicLayer1" value="valueDynamicLayer1" checked=""><img class="bgis-icon" src="assets/omst.af14d9ae.svg" alt="Beispiel Icon">
+                    <label class="bgis-txt" for="dynamicLayer1">
+                      <h4 class="bgis-subtitle1">Layer 1 Titel</h4>
+                    </label><i class="bgis-icon bgis-icon-chevron-up"></i></span>
+                  <ul class="bgis-list-dense">
+                    <li class="bgis-hz">
+                      <input class="bgis-icon bgis-checkbox" type="checkbox" id="layer1item1" value="Legend Entry x1" checked=""><img class="bgis-icon" src="assets/fwmst.50b378b4.svg" alt="Beispiel Icon">
+                      <label class="bgis-txt bgis-body2" for="layer1item2">Legend Layer 1 Item 1</label>
+                    </li>
+                    <li class="bgis-hz">
+                      <input class="bgis-icon bgis-checkbox" type="checkbox" id="layer1item2" value="layer1item2" checked=""><img class="bgis-icon" src="assets/semst.4c2431e9.svg" alt="Beispiel Icon">
+                      <label class="bgis-txt bgis-body2" for="layer1item2">Legend Layer 1 Item 2</label>
+                    </li>
+                  </ul>
+                </li>
+                <li><span class="bgis-hz">
+                    <input class="bgis-icon bgis-checkbox" type="checkbox" id="dynamicLayer2" value="valueDynamicLayer2" checked=""><img class="bgis-icon" src="assets/gmst.ad200cf0.svg" alt="Beispiel Icon">
+                    <label class="bgis-txt" for="dynamicLayer2">
+                      <h4 class="bgis-subtitle1">Layer 2 Titel</h4>
+                    </label><i class="bgis-icon bgis-icon-chevron-up"></i></span>
+                  <ul class="bgis-list-dense">
+                    <li class="bgis-hz">
+                      <input class="bgis-icon bgis-checkbox" type="checkbox" id="layer1item3" value="Legend Entry x1" checked=""><img class="bgis-icon" src="assets/pgmst.14898e5e.svg" alt="Beispiel Icon">
+                      <label class="bgis-txt bgis-body2" for="layer1item2">Legend Layer 2 Item 1</label>
+                    </li>
+                  </ul>
+                </li>
+                <li class="bgis-hz">
+                  <input class="bgis-icon bgis-checkbox" type="checkbox" id="dynamicLayer3" value="valueDynamicLayer3" checked=""><img class="bgis-icon" src="assets/gmst.ad200cf0.svg" alt="Beispiel Icon">
                   <label class="bgis-txt" for="dynamicLayer3">
                     <h4 class="bgis-subtitle1">Layer 3 Titel</h4>
-                  </label><i class="bgis-icon bgis-icon-chevron-down"></i></span></li>
-            </ul>
-          </div>
-          <!-- Provides general information about the map-->
-          <div class="bgis-legend-infos">
-            <!-- legend-infos.pug--><span class="bgis-card bgis-body1 bgis-scrollbar">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span>
-          </div>
-        </section>
-        <!-- quicklink.pug-->
-        <section class="bgis-quicklink bgis-toggled-overlayable">
-          <!-- examples/quicklink.pug--><span class="bgis-vt" style="align-items:center">
-            <button class="bgis-fab-icon" aria-label="Quicklink #{val}">0</button><a class="bgis-caption" aria-label="Quicklink #{val}">link to map0</a></span><span class="bgis-vt" style="align-items:center">
-            <button class="bgis-fab-icon" aria-label="Quicklink #{val}">1</button><a class="bgis-caption" aria-label="Quicklink #{val}">link to map1</a></span><span class="bgis-vt" style="align-items:center">
-            <button class="bgis-fab-icon" aria-label="Quicklink #{val}">2</button><a class="bgis-caption" aria-label="Quicklink #{val}">link to map2</a></span>
-          <!-- In the case there are more Quicklinks--><span class="bgis-vt" style="margin-left:calc(var(--bgis-grid-size) * 3);"><span class="bgis-fab-icon">:</span><a class="bgis-caption" aria-label="Mehr Quicklinks">more</a></span>
-          <!-- Allows to hide the Quicklinks.-->
-          <button class="bgis-icon bgis-quicklink-close" aria-label="Quicklinks ausblenden"><i class="bgis-icon bgis-icon-times-sm"></i></button>
+                  </label><i class="bgis-icon bgis-icon-chevron-down"></i>
+                </li>
+              </ul>
+            </div>
+            <!-- Provides general information about the map-->
+            <div class="bgis-legend-info-details">
+              <!-- legend-infos.pug--><span class="bgis-body1 bgis-scroll">
+                <h3 class="bgis-headline6">Placeholder</h3><span class="bgis-body1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span><span class="bgis-body1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span>
+                <h3 class="bgis-headline6">Placeholder</h3><span class="bgis-body1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span></span>
+            </div>
+          </section>
+          <!-- quicklink.pug-->
+          <section class="bgis-quicklink">
+            <header class="bgis-quicklink-header">
+              <button class="bgis-icon bgis-quicklink-close"><i class="bgis-icon-times-sm"></i></button>
+            </header>
+            <div class="bgis-quicklink-body">
+              <!-- examples/quicklink.pug-->
+              <button class="bgis-quicklink-button bgis-active"><span class="bgis-fab-icon" aria-label="Quicklink #{val}">0</span><a class="bgis-caption" aria-label="Quicklink #{val}">Link to map0</a></button>
+              <button class="bgis-quicklink-button" aria-pressed="false"><span class="bgis-fab-icon" aria-label="Quicklink #{val}">1</span><a class="bgis-caption" aria-label="Quicklink #{val}">Link to map1 Link to map1</a></button>
+              <button class="bgis-quicklink-button" aria-pressed="false"><span class="bgis-fab-icon" aria-label="Quicklink #{val}">2</span><a class="bgis-caption" aria-label="Quicklink #{val}">Link to map2</a></button>
+              <!-- In the case there are more Quicklinks-->
+              <p class="bgis-grow"></p>
+              <button class="bgis-quicklink-button"><span class="bgis-fab-icon" aria-label="More"><i class="bgis-icon-more-four"></i></span><a class="bgis-caption" aria-label="Mehr Quicklinks">Alle anzeigen</a></button>
+            </div>
+          </section>
         </section>
         <!-- detail.pug-->
-        <div class="bgis-detail bgis-toggled-overlayable">
-          <div class="bgis-detail-splitter bgis-icon"><i class="bgis-icon bgis-icon-minus"></i></div>
-          <div class="bgis-detail-body">
-            <!-- bgis-detail content goes here-->
-            <!-- examples/detail.pug-->
-            <div class="bgis-card bgis-scrollbar"><span class="bgis-hz"><span class="bgis-txt"><span class="bgis-subtitle1">XY details</span><span class="bgis-subtitle2">more Details for xy</span></span></span><img class="bgis-hz bgis-media" alt="Einfaches Beispielbild" style="height:100px;" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjY3OCIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTE0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0ib3ZlcmZsb3c6IGhpZGRlbjsgcG9zaXRpb246IHJlbGF0aXZlOyI+PGRlc2M+Q3JlYXRlZCB3aXRoIFJhcGhhw6tsIDIuMC4xPC9kZXNjPjxkZWZzPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTE0OCIgaGVpZ2h0PSI2NzgiIHI9IjAiIHJ4PSIwIiByeT0iMCIgZmlsbD0iI2YwZjBmMCIgc3Ryb2tlPSJub25lIiBzdHlsZT0iIj48L3JlY3Q+PGNpcmNsZSBjeD0iNzk1IiBjeT0iMzg2IiByPSI0NCIgZmlsbD0iIzAwMDAwMCIgc3Ryb2tlPSIjY2NjY2NjIiBzdHlsZT0ib3BhY2l0eTogMC4yOyIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk0NCIgY3k9IjM3NSIgcj0iMTA1IiBmaWxsPSIjMDAwMDAwIiBzdHJva2U9IiNjY2NjY2MiIHN0eWxlPSJvcGFjaXR5OiAwLjI7IiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+PC9zdmc+"><span class="bgis-hz bgis-body1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span><span class="bgis-hz">
-                <button class="bgis-button" aria-label="Beispiel Button 1">button1</button>
-                <button class="bgis-button" aria-label="Beispiel Button 2">button2</button><span class="bgis-txt">&nbsp;</span>
-                <button class="bgis-icon" aria-label="Beispiel Icon 1"><i class="bgis-icon bgis-icon-share"></i></button>
-                <button class="bgis-icon" aria-label="Beispiel Icon 2"><i class="bgis-icon bgis-icon-share"></i></button></span></div>
+        <div class="bgis-details">
+          <div class="bgis-details-splitter bgis-hz">
+            <button class="bgis-hover bgis-grow"><i class="bgis-icon bgis-icon-minus"></i></button>
+            <button class="bgis-hover"><i class="bgis-icon bgis-icon-times-sm"></i></button>
           </div>
-          <div class="bgis-search-results">
-            <ul class="bgis-list-dense">
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 0</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 1</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 2</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 3</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 4</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 5</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 6</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 7</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 8</span>
-              </li>
-              <li class="bgis-hz">
-                <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><span class="bgis-txt">Somwhere near 123, 9</span>
-              </li>
-            </ul>
-          </div>
-          <button class="bgis-hide-detail" onclick="document.querySelector('.bgis-sidebar').classList.toggle('minimize-detail');return false;">Ausblenden</button>
+          <div class="bgis-map-details-body  bgis-scroll "><span class="bgis-hz"><span class="bgis-txt"><span class="bgis-subtitle1">XY details</span><span class="bgis-subtitle2">more Details for xy</span></span></span><img class="bgis-hz bgis-media" alt="Einfaches Beispielbild" style="height:100px;" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjY3OCIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTE0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0ib3ZlcmZsb3c6IGhpZGRlbjsgcG9zaXRpb246IHJlbGF0aXZlOyI+PGRlc2M+Q3JlYXRlZCB3aXRoIFJhcGhhw6tsIDIuMC4xPC9kZXNjPjxkZWZzPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTE0OCIgaGVpZ2h0PSI2NzgiIHI9IjAiIHJ4PSIwIiByeT0iMCIgZmlsbD0iI2YwZjBmMCIgc3Ryb2tlPSJub25lIiBzdHlsZT0iIj48L3JlY3Q+PGNpcmNsZSBjeD0iNzk1IiBjeT0iMzg2IiByPSI0NCIgZmlsbD0iIzAwMDAwMCIgc3Ryb2tlPSIjY2NjY2NjIiBzdHlsZT0ib3BhY2l0eTogMC4yOyIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk0NCIgY3k9IjM3NSIgcj0iMTA1IiBmaWxsPSIjMDAwMDAwIiBzdHJva2U9IiNjY2NjY2MiIHN0eWxlPSJvcGFjaXR5OiAwLjI7IiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMiI+PC9jaXJjbGU+PC9zdmc+"><span class="bgis-hz bgis-body1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</span><span class="bgis-hz">
+              <button class="bgis-button" aria-label="Beispiel Button 1">button1</button>
+              <button class="bgis-button" aria-label="Beispiel Button 2">button2</button><span class="bgis-txt">&nbsp;</span>
+              <button class="bgis-icon" aria-label="Beispiel Icon 1"><i class="bgis-icon bgis-icon-share"></i></button>
+              <button class="bgis-icon" aria-label="Beispiel Icon 2"><i class="bgis-icon bgis-icon-share"></i></button></span></div>
+          <ul class="bgis-search-details-body bgis-list-dense bgis-scroll">
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 0</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 1</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 2</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 3</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 4</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 5</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 6  Somwhere near 123, 6  Somwhere near 123, 6</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 7  Somwhere near 123, 7  Somwhere near 123, 7</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 8  Somwhere near 123, 8  Somwhere near 123, 8</a>
+            </li>
+            <li class="bgis-hz bgis-hover bgis-border-bottom">
+              <button class="bgis-icon" aria-label="Beispiel Listeneintrag #{val}"><i class="bgis-icon bgis-icon-map-marker"></i></button><a class="bgis-txt bgis-body1">Somwhere near 123, 9  Somwhere near 123, 9  Somwhere near 123, 9</a>
+            </li>
+          </ul>
+          <button class="bgis-hide-detail">Ausblenden</button>
         </div>
-        <!-- sidebar.pug (2)-->
-        <div class="collapsible bgis-icon bgis-hide-sidebar bgis-toggled-overlayable"><i class="bgis-icon bgis-icon-chevron-left-sm"></i></div>
       </aside>
-      <!-- sidebar-collapse.pug-->
-      <div class="collapsible bgis-icon bgis-show-sidebar bgis-toggled-overlayable "><i class="bgis-icon bgis-icon-chevron-right-sm"></i></div>
+      <!-- toggle sidebar.pug (2)-->
+      <button class="bgis-toggle-sidebar collapsible"><i class="bgis-icon bgis-sidebar-icon-toggle"></i></button>
       <!-- map.pug-->
       <div class="bgis-map" id="bgis-map"></div>
       <!-- toolbar-->
-      <section class="bgis-toolbar bgis-toggled-overlayable">
-        <header class="bgis-toolbar-header">
-          <button class="bgis-hide-toolbar bgis-icon"><i class="bgis-interactable-icon bgis-icon-times"></i></button><span class="bgis-txt bgis-subtiltle2">Toolbox</span>
-          <button class="bgis-icon"><i class="bgis-icon bgis-icon-undo"></i></button>
-          <button class="bgis-icon"><i class="bgis-icon bgis-icon-redo"></i></button>
-          <button class="bgis-toolbar-toggle bgis-icon" onclick="this.parentElement.parentElement.classList.toggle('open');return false;"><i class="bgis-icon"></i></button>
-        </header>
-        <div class="bgis-toolbar-body">
-          <ul class="bgis-list-dense bgis-scrollbar">
-            <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-draw"></i><span class="bgis-text bgis-grow1">Zeichnen</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
-            <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-measure"></i><span class="bgis-text bgis-grow1">Messen</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
-            <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-import"></i><span class="bgis-text bgis-grow1">Import</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
-            <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-export"></i><span class="bgis-text bgis-grow1">Export</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
-          </ul>
-        </div>
+      <section class="bgis-toolbar-area">
+        <section class="bgis-toolbar">
+          <header class="bgis-toolbar-header">
+            <button class="bgis-icon bgis-hide-toolbar"><i class="bgis-icon bgis-icon-times-sm"></i></button><span class="bgis-txt bgis-subtiltle2 bgis-grow">Toolbox</span>
+            <button class="bgis-icon"><i class="bgis-icon bgis-icon-undo"></i></button>
+            <button class="bgis-icon"><i class="bgis-icon bgis-icon-redo"></i></button>
+            <button class="bgis-icon bgis-toolbar-open"><i class="bgis-icon bgis-toggle-toolbar-body"></i></button>
+          </header>
+          <div class="bgis-toolbar-body">
+            <ul class="bgis-list-dense bgis-scrollbar">
+              <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-draw"></i><span class="bgis-txt bgis-grow1">Zeichnen</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
+              <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-measure"></i><span class="bgis-txt bgis-grow1">Messen</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
+              <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-import"></i><span class="bgis-txt bgis-grow1">Import</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
+              <li><span class="bgis-hz"><i class="bgis-icon bgis-icon-export"></i><span class="bgis-txt bgis-grow1">Export</span><i class="bgis-icon bgis-icon-chevron-right-sm"></i></span></li>
+            </ul>
+          </div>
+        </section>
       </section>
+      <!-- header-collapse.pug-->
+      <button class="collapsible bgis-icon bgis-show-header"><i class="bgis-icon bgis-icon-chevron-down"></i></button>
       <!-- basemap Begleitkarten-->
-      <section class="bgis-basemap bgis-toggled-overlayable"><span class="bgis-vt" style="align-items:center"><img class="bgis-fab-icon" src="./0a8e11356581eef44f82.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap DOP</a></span><span class="bgis-vt" style="align-items:center"><img class="bgis-fab-icon" src="./d8467b7033e38fd35552.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Farbe</a></span><span class="bgis-vt" style="align-items:center"><img class="bgis-fab-icon" src="./44f167a4d0b6146d8298.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Gelände</a></span><span class="bgis-vt" style="align-items:center"><img class="bgis-fab-icon" src="./d6bf9b7e876a81e74045.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Grau</a></span><span class="bgis-vt" style="align-items:center"><img class="bgis-fab-icon" src="./2004c8c3272221f71093.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Leer</a></span><span class="bgis-vt" style="align-items:center"><img class="bgis-fab-icon" src="./12884b63ba63f7e6ad4e.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Oberfläche</a></span>
-        <button class="bgis-basemap-close bgis-icon" id="bgis-basemap-close" aria-label="Listenansicht schließen" aria-hidden="true"><i class="bgis-icon bgis-icon-times-sm"></i></button>
-      </section>
+      <section class="bgis-basemap"><span class="bgis-basemap-header">
+          <button class="bgis-basemap-close bgis-icon" id="bgis-basemap-close" aria-label="Listenansicht schließen" aria-hidden="true"><i class="bgis-icon bgis-icon-times-sm"></i></button></span><span class="bgis-basemap-body"><span class="bgis-hz">
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_leer.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Something else 1</a></button>
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_leer.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Something else 2</a></button></span><span class="bgis-hz">
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_dop.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap DOP</a></button>
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_farbe.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Farbe</a></button>
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_gelaende.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Gelände</a></button>
+            <button class="bgis-basemap-button bgis-active"><img class="bgis-basemap-icon" src="assets/basemap_grau.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Grau</a></button>
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_leer.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Leer</a></button>
+            <button class="bgis-basemap-button"><img class="bgis-basemap-icon" src="assets/basemap_oberflaeche.png" alt="Beispiel Icon"><a class="bgis-caption" aria-label="Quicklink #{val}">Basemap Oberfläche</a></button></span></span></section>
     </div>
     <!-- listview.pug-->
-    <div class="bgis-listview-splitter"></div>
+    <button class="bgis-listview-splitter bgis-icon bgis-hover"><i class="bgis-icon"></i></button>
     <div class="bgis-listview">
-      <header class="bgis-listview-header">
+      <header class="bgis-listview-header bgis-border-bottom">
         <button class="bgis-icon" id="bgis-listview-close" aria-label="Listenansicht schließen" aria-hidden="true"><i class="bgis-icon bgis-icon-times"></i></button>
-        <button class="bgis-icon" aria-label="Listenansicht maximieren" aria-hidden="true"><i class="bgis-icon bgis-icon-expand"></i></button><span class="bgis-grow1">&nbsp;</span>
+        <button class="bgis-icon" aria-label="Listenansicht maximieren" aria-hidden="true"><i class="bgis-icon bgis-icon-expand"></i></button><span class="bgis-grow">&nbsp;</span>
         <button class="bgis-icon" aria-label="Listenansicht schließen" aria-hidden="true"><i class="bgis-icon bgis-icon-sign-out"></i></button>
         <button class="bgis-icon" aria-label="Listenansicht maximieren" aria-hidden="true"><i class="bgis-icon bgis-icon-more-four"></i></button>
       </header>
       <!-- bgis-listview content goes here-->
       <div class="bgis-listview-body">
         <!-- examples/list.pug-->
-        <ul class="bgis-list bgis-vertical">
+        <ul class="bgis-list-dense bgis-scroll">
           <li class="bgis-hz">
             <div class="bgis-fab-icon">1</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 1</span><span class="bgis-subtitle2">More info about 1</span></span>
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
@@ -387,23 +401,23 @@ footer a {
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
           </li>
           <li class="bgis-hz">
-            <div class="bgis-fab-icon">6</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 6</span><span class="bgis-subtitle2">More info about 6</span></span>
+            <div class="bgis-fab-icon">6</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 6</span><span class="bgis-subtitle2">More info about 6 More info about 6  More info about 6 More info about 6 More info about 6</span></span>
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
           </li>
           <li class="bgis-hz">
-            <div class="bgis-fab-icon">7</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 7</span><span class="bgis-subtitle2">More info about 7</span></span>
+            <div class="bgis-fab-icon">7</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 7</span><span class="bgis-subtitle2">More info about 7 More info about 7  More info about 7 More info about 7 More info about 7</span></span>
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
           </li>
           <li class="bgis-hz">
-            <div class="bgis-fab-icon">8</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 8</span><span class="bgis-subtitle2">More info about 8</span></span>
+            <div class="bgis-fab-icon">8</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 8</span><span class="bgis-subtitle2">More info about 8 More info about 8  More info about 8 More info about 8 More info about 8</span></span>
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
           </li>
           <li class="bgis-hz">
-            <div class="bgis-fab-icon">9</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 9</span><span class="bgis-subtitle2">More info about 9</span></span>
+            <div class="bgis-fab-icon">9</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 9</span><span class="bgis-subtitle2">More info about 9 More info about 9  More info about 9 More info about 9 More info about 9</span></span>
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
           </li>
           <li class="bgis-hz">
-            <div class="bgis-fab-icon">10</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 10</span><span class="bgis-subtitle2">More info about 10</span></span>
+            <div class="bgis-fab-icon">10</div><span class="bgis-txt"><span class="bgis-subtitle1">Found 10</span><span class="bgis-subtitle2">More info about 10 More info about 10  More info about 10 More info about 10 More info about 10</span></span>
             <div class="bgis-icon"><i class="bgis-icon bgis-icon-chevron-down"></i></div>
           </li>
         </ul>
@@ -411,53 +425,59 @@ footer a {
     </div>
     <!-- menu.pug-->
     <div class="bgis-app-menu">
-      <ul class="bgis-list bgis-vertical">
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">1</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 1</span><span class="bgis-subtitle2">Some Navigation Details 1</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">2</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 2</span><span class="bgis-subtitle2">Some Navigation Details 2</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">3</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 3</span><span class="bgis-subtitle2">Some Navigation Details 3</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">4</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 4</span><span class="bgis-subtitle2">Some Navigation Details 4</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">5</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 5</span><span class="bgis-subtitle2">Some Navigation Details 5</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">6</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 6</span><span class="bgis-subtitle2">Some Navigation Details 6</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">7</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 7</span><span class="bgis-subtitle2">Some Navigation Details 7</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">8</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 8</span><span class="bgis-subtitle2">Some Navigation Details 8</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">9</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 9</span><span class="bgis-subtitle2">Some Navigation Details 9</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">10</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 10</span><span class="bgis-subtitle2">Some Navigation Details 10</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">11</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 11</span><span class="bgis-subtitle2">Some Navigation Details 11</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">12</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 12</span><span class="bgis-subtitle2">Some Navigation Details 12</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">13</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 13</span><span class="bgis-subtitle2">Some Navigation Details 13</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">14</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 14</span><span class="bgis-subtitle2">Some Navigation Details 14</span></span>
-        </li>
-        <li class="bgis-hz">
-          <div class="bgis-fab-icon">15</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 15</span><span class="bgis-subtitle2">Some Navigation Details 15</span></span>
-        </li>
-      </ul>
+      <header class="bgis-app-menu-header">
+        <button class="bgis-icon" id="bgis-listview-close2" aria-label="Listenansicht schließen" aria-hidden="true" onclick="document.querySelector('.bgis-body').classList.toggle('show-app-menu');return false;"><i class="bgis-icon bgis-icon-times"></i></button><span class="bgis-txt bgis-grow"><span class="bgis-headline6">Bgis App Logo</span><span class="bgis-caption">Application Subtitle</span></span>
+      </header>
+      <section class="bgis-app-menu-body">
+        <ul class="bgis-list-dense  ">
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">1</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 1</span><span class="bgis-subtitle2">Some Navigation Details 1</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">2</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 2</span><span class="bgis-subtitle2">Some Navigation Details 2</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">3</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 3</span><span class="bgis-subtitle2">Some Navigation Details 3</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">4</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 4</span><span class="bgis-subtitle2">Some Navigation Details 4</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">5</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 5</span><span class="bgis-subtitle2">Some Navigation Details 5</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">6</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 6</span><span class="bgis-subtitle2">Some Navigation Details 6</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">7</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 7</span><span class="bgis-subtitle2">Some Navigation Details 7</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">8</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 8</span><span class="bgis-subtitle2">Some Navigation Details 8</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">9</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 9</span><span class="bgis-subtitle2">Some Navigation Details 9</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">10</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 10</span><span class="bgis-subtitle2">Some Navigation Details 10</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">11</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 11</span><span class="bgis-subtitle2">Some Navigation Details 11 Some Navigation Details 11 Some Navigation Details 11 Some Navigation Details 11</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">12</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 12</span><span class="bgis-subtitle2">Some Navigation Details 12 Some Navigation Details 12 Some Navigation Details 12 Some Navigation Details 12</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">13</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 13</span><span class="bgis-subtitle2">Some Navigation Details 13 Some Navigation Details 13 Some Navigation Details 13 Some Navigation Details 13</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">14</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 14</span><span class="bgis-subtitle2">Some Navigation Details 14 Some Navigation Details 14 Some Navigation Details 14 Some Navigation Details 14</span></span>
+          </li>
+          <li class="bgis-hz">
+            <div class="bgis-fab-icon">15</div><span class="bgis-txt"><span class="bgis-subtitle1">Navigate 15</span><span class="bgis-subtitle2">Some Navigation Details 15 Some Navigation Details 15 Some Navigation Details 15 Some Navigation Details 15</span></span>
+          </li>
+        </ul>
+        <li class="bgis-hz"><span class="bgis-caption bgis-grow1 bgis-hz-center">&copy; BMLRT, 2023</span></li>
+      </section>
     </div>
   </main>
 </div>
@@ -534,7 +554,7 @@ new Map({
   <h3 class="mt-3">HTML</h3>
   <pre><code class="html" id="htmlCode"></code></pre>
 </main><footer class="footer py-3 mt-5 bg-light">
-<div class="container text-center">© 2021 Copyright BMLRT |&nbsp;Code licensed under the <a href="https://tldrlegal.com/license/bsd-2-clause-license-(freebsd)" target="_blank">2-Clause BSD</a>.
+<div class="container text-center">© <a href="https://www.bml.gv.at/" target="_blank">BMLRT</a>, 2023 |&nbsp;Code licensed under the <a href="https://tldrlegal.com/license/bsd-2-clause-license-(freebsd)" target="_blank">2-Clause BSD</a>.
 All documentation <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div></footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
